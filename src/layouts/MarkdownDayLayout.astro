@@ -1,0 +1,15 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+const { file } = Astro.props;
+
+const dayNumber = parseInt(
+    file.substring(file.lastIndexOf("/") + 1).match(/[0-9]{2}/)![0],
+);
+
+const pageTitle = `Day ${dayNumber}`;
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <slot />
+    </p>
+</BaseLayout>

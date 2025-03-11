@@ -1,0 +1,20 @@
+---
+import Boilerplate from "./Boilerplate.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+
+import "@styles/global.css";
+
+import { DEFAULT_TITLE } from "@scripts/constants";
+
+const { pageTitle } = Astro.props;
+const title = pageTitle
+    ? `${pageTitle.trim()} | ${DEFAULT_TITLE}`
+    : DEFAULT_TITLE;
+---
+
+<Boilerplate pageTitle={title} favicon="/favicon.svg">
+    <Header />
+    <slot />
+    <Footer />
+</Boilerplate>

@@ -1,8 +1,8 @@
 # Advent of Code - 2025
 [Advent of Code](https://adventofcode.com/) repo for [2025](https://adventofcode.com/2025/).
-I am going all out this year by making this both an engineering and programming project.
+I am going all out this year by making this both an engineering/DevOps and programming project.
 
-## Engineering Part
+## Engineering/DevOps Part
 Making the [Astro](https://astro.build) website and setting up the necessary automation pipelines to make the programming part in December nice and painless.
 
 ## Programming Part
