@@ -1,9 +1,5 @@
-async function getDaySolution(day: number) {
-    switch (day) {
-        case 1: return await import("@scripts/day01");
-        case 2: return await import("@scripts/day02");
-    }
-}
+
+import { getDaySolution } from '@codegen/importDay'; // generated source file, run `npx astro build` if there are import errors
 
 document.getElementsByName("btn-solve")?.forEach((button) => {
     console.log(button.id);
