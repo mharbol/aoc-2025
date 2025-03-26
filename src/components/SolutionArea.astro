@@ -1,0 +1,42 @@
+---
+const { dayNumber } = Astro.props;
+const placeholder: string = "Paste input here...";
+---
+
+<div id="solution-area">
+    <button name="btn-solve" id={dayNumber}>Solve</button>
+    <div class="solution" id="part-1">
+        <p>Part 1</p>
+    </div>
+    <div class="solution" id="part-2">
+        <p>Part 2</p>
+    </div>
+</div>
+
+<script src="@scripts/attach-solution.ts"></script>
+
+<textarea
+    placeholder={placeholder}
+    id="puzzle-input"
+    name="puzzle-input"
+    spellcheck="false"
+    required
+    wrap="soft"></textarea>
+
+<style>
+    #puzzle-input {
+        resize: none;
+        min-height: 50vh;
+    }
+
+    #solution-area {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: left;
+        align-items: center;
+        /* border: 2px solid red; */
+        padding: 0px;
+        margin: 0px;
+        line-height: 0;
+    }
+</style>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
+import SolutionArea from "@components/SolutionArea.astro";
 const { file } = Astro.props;
 
 const dayNumber = parseInt(
@@ -11,5 +12,5 @@ const pageTitle = `Day ${dayNumber}`;
 
 <BaseLayout pageTitle={pageTitle}>
     <slot />
-    </p>
+    <SolutionArea dayNumber={dayNumber} />
 </BaseLayout>
