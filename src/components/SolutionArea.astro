@@ -4,7 +4,7 @@ const placeholder: string = "Paste input here...";
 ---
 
 <div id="solution-area">
-    <button name="btn-solve" id={dayNumber}>Solve</button>
+    <button id="btn-solve" name={dayNumber}>Solve</button>
     <div class="solution">
         <p>Part 1</p>
         <p id="part-1"></p>
@@ -13,6 +13,10 @@ const placeholder: string = "Paste input here...";
         <p>Part 2</p>
         <p id="part-2"></p>
     </div>
+</div>
+<div>
+    <button id="btn-load-input" name={dayNumber}>Load Example Input</button>
+    <button id="btn-clear-input">Clear Input</button>
 </div>
 
 <script src="@scripts/attach-solution.ts"></script>
@@ -42,3 +46,30 @@ const placeholder: string = "Paste input here...";
         line-height: 0;
     }
 </style>
+
+<script>
+    // clear input
+    const puzzleInput = document.getElementById("puzzle-input")!;
+    document
+        .getElementById("btn-clear-input")
+        ?.addEventListener("click", () => {
+            //@ts-ignore
+            puzzleInput.value = "";
+        });
+</script>
+
+<script>
+    // insert example
+    const dayNum = document.getElementById("btn-solve")?.getAttribute("name")!;
+    fetch(`/resources/day${dayNum.padStart(2, "0")}.txt`)
+        .then((res) => res.text())
+        .then((text) => {
+            let puzzleInput = document.getElementById("puzzle-input");
+            document
+                .getElementById("btn-load-input")
+                ?.addEventListener("click", () => {
+                    // @ts-ignore
+                    puzzleInput!.value = text.trimEnd();
+                });
+        });
+</script>
