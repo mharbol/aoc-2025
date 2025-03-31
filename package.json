@@ -9,7 +9,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.5.5"
+    "astro": "^5.5.5",
+    "aoc_2025": "file:./aoc_2025/pkg/"
   },
   "devDependencies": {
     "@types/node": "^22.13.14",

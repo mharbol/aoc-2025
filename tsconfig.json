@@ -9,7 +9,7 @@
       "@scripts/*": ["src/scripts/*"],
       "@styles/*": ["src/styles/*"],
       "@components/*": ["src/components/*"],
-      "@codegen/*": [".astro/integrations/codegen/*"]
+      "@srcgen/*": [".astro/integrations/srcgen/*"]
     }
   }
 }
