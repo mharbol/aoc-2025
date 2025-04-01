@@ -4,6 +4,8 @@ import srcgen from './src/scripts/srcgen';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://mharbol.github.io',
+  base: '/aoc-2025',
   integrations: [
     srcgen
   ],

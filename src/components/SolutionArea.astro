@@ -61,7 +61,7 @@ const placeholder: string = "Paste input here...";
 <script>
     // insert example
     const dayNum = document.getElementById("btn-solve")?.getAttribute("name")!;
-    fetch(`/resources/day${dayNum.padStart(2, "0")}.txt`)
+    fetch(`/aoc-2025/resources/day${dayNum.padStart(2, "0")}.txt`)
         .then((res) => res.text())
         .then((text) => {
             let puzzleInput = document.getElementById("puzzle-input");

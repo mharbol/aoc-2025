@@ -1,0 +1,60 @@
+name: Build, test, and deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  test-rust:
+    runs-on: ${{matrix.os}}
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, macos-latest ]
+    steps:
+      - uses: actions/checkout@v4
+      - name: cargo test on ${{ matrix.os }}
+        working-directory: ./aoc_2025
+        run:  cargo test --release
+  build-wasm:
+    needs: test-rust
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./aoc_2025
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install wasm-pack
+        run: cargo install wasm-pack
+      - name: Compile WASM
+        run: wasm-pack build --target web --release
+      - uses: actions/upload-artifact@v4
+        with:
+          name: wasm-pkg
+          path: aoc_2025/pkg
+  build-astro:
+    needs: build-wasm
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: wasm-pkg
+          path: aoc_2025/pkg
+      - name: Build Astro
+        uses: withastro/action@v3
+  deploy:
+    needs: build-astro
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
