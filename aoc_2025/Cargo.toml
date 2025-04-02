@@ -6,6 +6,9 @@ edition = "2024"
 [lib]
 crate-type = ["cdylib", "rlib"]
 
+[profile.release]
+lto = true
+
 [dependencies]
 itertools = "0.14.0"
 regex = "1.11.1"
