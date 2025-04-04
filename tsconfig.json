@@ -8,6 +8,7 @@
       "@layouts/*": ["src/layouts/*"],
       "@scripts/*": ["src/scripts/*"],
       "@styles/*": ["src/styles/*"],
+      "@pages/*": ["src/pages/*"],
       "@components/*": ["src/components/*"],
       "@srcgen/*": [".astro/integrations/srcgen/*"]
     }

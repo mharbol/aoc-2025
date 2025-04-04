@@ -5,16 +5,16 @@ import Footer from "@components/Footer.astro";
 
 import "@styles/global.css";
 
-import { DEFAULT_TITLE } from "@scripts/constants";
+import { DEFAULT_TITLE, URL_BASE } from "@scripts/constants";
 
-const { pageTitle } = Astro.props;
+const { pageTitle, sourceFile } = Astro.props;
 const title = pageTitle
     ? `${pageTitle.trim()} | ${DEFAULT_TITLE}`
     : DEFAULT_TITLE;
 ---
 
-<Boilerplate pageTitle={title} favicon="/aoc-2025/favicon.svg">
+<Boilerplate pageTitle={title} favicon=`/${URL_BASE}/favicon.svg`>
     <Header />
     <slot />
-    <Footer />
+    <Footer sourceFile={sourceFile} />
 </Boilerplate>

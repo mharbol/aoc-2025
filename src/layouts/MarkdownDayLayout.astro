@@ -1,6 +1,6 @@
 ---
-import BaseLayout from "./BaseLayout.astro";
-import SolutionArea from "@components/SolutionArea.astro";
+import DefaultLayout from "./DefaultLayout.astro";
+import { githubUrl } from "@scripts/constants";
 const { file } = Astro.props;
 
 const dayNumber = parseInt(
@@ -8,9 +8,109 @@ const dayNumber = parseInt(
 );
 
 const pageTitle = `Day ${dayNumber}`;
+const placeholder: string = "Paste input here...";
+const clearInput: string = "Clear Input";
+const loadExample: string = "Load Example Input";
 ---
 
-<BaseLayout pageTitle={pageTitle}>
+<DefaultLayout pageTitle={pageTitle} sourceFile={githubUrl(dayNumber)}>
     <slot />
-    <SolutionArea dayNumber={dayNumber} />
-</BaseLayout>
+
+    <div id="solution-area">
+        <button id="btn-solve" name={dayNumber.toString()}>Solve</button>
+        <div class="solution">
+            <p>Part 1:</p>
+            <p class="answer" id="part-1"></p>
+        </div>
+        <div class="solution">
+            <p>Part 2:</p>
+            <p class="answer" id="part-2"></p>
+        </div>
+    </div>
+    <div>
+        <button id="btn-load-input" name={dayNumber.toString()}
+            >{loadExample}</button
+        >
+        <button id="btn-clear-input">{clearInput}</button>
+    </div>
+
+    <textarea
+        placeholder={placeholder}
+        id="puzzle-input"
+        name="puzzle-input"
+        spellcheck="false"
+        required
+        wrap="soft"></textarea>
+
+    <script src="@scripts/attach-wasm-solution.ts"></script>
+
+    <script>
+        // clear input
+        const puzzleInput = document.getElementById("puzzle-input")!;
+        const p1Solution = document.getElementById("part-1");
+        const p2Solution = document.getElementById("part-2");
+        document
+            .getElementById("btn-clear-input")
+            ?.addEventListener("click", () => {
+                //@ts-ignore
+                puzzleInput.value = "";
+                //@ts-ignore
+                p1Solution.innerHTML = "";
+                //@ts-ignore
+                p2Solution.innerHTML = "";
+            });
+    </script>
+
+    <script>
+        import { URL_BASE } from "@scripts/constants";
+
+        // insert example
+        const dayNum = document
+            .getElementById("btn-solve")
+            ?.getAttribute("name")!;
+        fetch(`/${URL_BASE}/resources/day${dayNum.padStart(2, "0")}.txt`)
+            .then((res) => res.text())
+            .then((text) => {
+                let puzzleInput = document.getElementById("puzzle-input");
+                document
+                    .getElementById("btn-load-input")
+                    ?.addEventListener("click", () => {
+                        // @ts-ignore
+                        puzzleInput!.value = text.trimEnd();
+                    });
+            });
+    </script>
+
+    <style>
+        #puzzle-input {
+            resize: none;
+            min-height: 75vh;
+            scrollbar-width: thin;
+            scroll-behavior: smooth;
+            scrollbar-color: var(--dragonBlue) var(--winterBlue);
+            color: var(--springGreen);
+        }
+
+        #solution-area {
+            /* border: 1px solid red !important; */
+            display: inline-flex;
+            .solution {
+                /* border: 1px solid red !important; */
+                display: flex;
+            }
+
+            p {
+                /* border: 1px solid red !important; */
+                padding: 0.1em;
+            }
+
+            justify-content: flex-start;
+            align-items: center;
+            margin: 0px;
+        }
+
+        .answer {
+            color: var(--roninYellow);
+        }
+    </style>
+</DefaultLayout>

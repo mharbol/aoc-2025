@@ -1,10 +1,12 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
+import DefaultLayout from "@layouts/DefaultLayout.astro";
+import { URL_BASE } from "@scripts/constants";
 ---
 
-<BaseLayout pageTitle="About">
+<DefaultLayout pageTitle="About">
     <p>Working on it...</p>
     <p>
-        Check out the <a href="/aoc-2025/solutions">solutions</a> page for what's to come.
+        Check out the <a href=`/${URL_BASE}/solutions`>solutions</a> page for what's
+        to come.
     </p>
-</BaseLayout>
+</DefaultLayout>
