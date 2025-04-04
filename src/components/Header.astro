@@ -1,11 +1,19 @@
 ---
-import { URL_BASE } from "@scripts/constants";
+import HeaderNavItem from "./HeaderNavItem.astro";
 ---
 
 <header>
     <nav>
-        <a href=`/${URL_BASE}/`>Home</a>
-        <a href=`/${URL_BASE}/solutions`>Solutions</a>
-        <a href=`/${URL_BASE}/about`>About</a>
+        <HeaderNavItem name="Home" path="/" />
+        <HeaderNavItem name="Solutions" path="/solutions" />
+        <HeaderNavItem name="About" path="/about" />
     </nav>
 </header>
+
+<style>
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+</style>

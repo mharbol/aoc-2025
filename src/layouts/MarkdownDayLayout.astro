@@ -8,12 +8,17 @@ const dayNumber = parseInt(
 );
 
 const pageTitle = `Day ${dayNumber}`;
+
 const placeholder: string = "Paste input here...";
 const clearInput: string = "Clear Input";
 const loadExample: string = "Load Example Input";
 ---
 
-<DefaultLayout pageTitle={pageTitle} sourceFile={githubUrl(dayNumber)}>
+<DefaultLayout
+    pageTitle={pageTitle}
+    sourceFile={githubUrl(dayNumber)}
+    selectedDay={dayNumber}
+>
     <slot />
 
     <div id="solution-area">

@@ -1,0 +1,23 @@
+---
+import LeftMenuItem from "./LeftMenuItem.astro";
+
+const { allDays, selectedDay } = Astro.props;
+
+function dayNumber(fileName: string): number {
+    return parseInt(
+        fileName.substring(fileName.lastIndexOf("/") + 1).match(/[0-9]{2}/)![0],
+    );
+}
+---
+
+<div>
+    {
+        allDays.map((day: any) => (
+            <LeftMenuItem
+                dayNumber={dayNumber(day.url)}
+                url={day.url}
+                isSelectedDay={selectedDay == dayNumber(day.url)}
+            />
+        ))
+    }
+</div>

@@ -14,7 +14,17 @@ const title = pageTitle
 ---
 
 <Boilerplate pageTitle={title} favicon=`/${URL_BASE}/favicon.svg`>
-    <Header />
-    <slot />
-    <Footer sourceFile={sourceFile} />
+    <div class="container">
+        <Header />
+        <slot />
+        <Footer sourceFile={sourceFile} />
+    </div>
 </Boilerplate>
+
+<style>
+    .container {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+</style>

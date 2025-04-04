@@ -1,0 +1,17 @@
+---
+import { URL_BASE } from "@scripts/constants";
+
+const { name, path } = Astro.props;
+---
+
+<a href=`/${URL_BASE}${path}`>{name}</a>
+
+<style>
+    a {
+        padding: 4px 12px;
+        border-radius: 15px;
+        margin: 5px 25px;
+        background-color: var(--button-color);
+        color: var(--button-text);
+    }
+</style>
