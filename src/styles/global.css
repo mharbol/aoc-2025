@@ -5,34 +5,34 @@
     /* border: 1px solid red !important; */
 
     margin: 0;
+    /* padding: 0; */
     background-color: var(--sumiInk2);
-    /* color: white; */
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
-
-h1 {
+h1, h2, h3, h4, h5, h6 {
     color: var(--waveAqua2);
-}
-
-button {
-    background-color: var(--waveBlue1);
-    color: var(--carpYellow);
-    border-radius: 12px;
-}
-
-footer {
-    margin-top: auto;
-    width: 100%;
-    padding-bottom: 20px;
-    align-content: center;
-    text-align: center;
 }
 
 p {
     color: var(--fujiWhite);
 }
 
+img, picture, video, canvas, svg {
+    display: block;
+    max-inline-size: 100%;
+}
+
 a {
     text-decoration: none;
     color: var(--surimiOrange);
+}
+
+button {
+    background-color: var(--waveBlue1);
+    color: var(--carpYellow);
+    border-radius: 12px;
+    padding: 1px 6px;
 }
