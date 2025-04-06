@@ -7,12 +7,28 @@ interface Props {
 const { dayNumber, url, isSelectedDay } = Astro.props;
 ---
 
-<p>
-    <a href={url} class:list={[{ selected: isSelectedDay }]}>Day {dayNumber}</a>
-</p>
+<a
+    title=`Day ${dayNumber} solution`
+    href={url}
+    class:list={[{ selected: isSelectedDay }]}>Day {dayNumber}</a
+>
 
 <style>
+    a {
+        width: 140px;
+        height: 35px;
+        border-radius: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--sumiInk3);
+        color: var(--springBlue);
+    }
     a.selected {
-        color: var(--crystalBlue);
+        color: var(--surimiOrange);
+        background-color: var(--sumiInk4);
+    }
+    a:hover {
+        background-color: var(--sumiInk1);
     }
 </style>

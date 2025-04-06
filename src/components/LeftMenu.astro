@@ -10,14 +10,22 @@ function dayNumber(fileName: string): number {
 }
 ---
 
-<div>
+<div class="container">
     {
         allDays.map((day: any) => (
-            <LeftMenuItem
-                dayNumber={dayNumber(day.url)}
-                url={day.url}
-                isSelectedDay={selectedDay == dayNumber(day.url)}
-            />
+            <div class="inner-container">
+                <LeftMenuItem
+                    dayNumber={dayNumber(day.url)}
+                    url={day.url}
+                    isSelectedDay={selectedDay == dayNumber(day.url)}
+                />
+            </div>
         ))
     }
 </div>
+
+<style>
+    .inner-container {
+        margin: 5px 25px 10px 10px;
+    }
+</style>
