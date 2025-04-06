@@ -1,4 +1,5 @@
 ---
+import FontHeader from "@components/FontHeader.astro";
 const { pageTitle, favicon } = Astro.props;
 ---
 
@@ -8,6 +9,7 @@ const { pageTitle, favicon } = Astro.props;
         <link rel="icon" type="image/svg+xml" href={favicon} />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
+        <FontHeader />
         <title>{pageTitle}</title>
     </head>
     <body>

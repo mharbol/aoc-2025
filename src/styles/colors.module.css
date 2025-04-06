@@ -41,6 +41,12 @@
     --button-color: #2e4057;
     --button-text: #ffbf00;
     --background-color: #2a2a37;
+
+    --default-font: "JetBrains Mono", monospace;
+    --default-font-weight: 400;
+    --header-font: "Lato", sans-serif;
+    --header-font-weight: 600;
+
 }
 
 @value fujiWhite: var(--fujiWhite);
