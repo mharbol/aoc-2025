@@ -7,6 +7,11 @@ import "@styles/global.css";
 
 import { DEFAULT_TITLE, URL_BASE } from "@scripts/constants";
 
+interface Props {
+    pageTitle?: string;
+    sourceFile?: string;
+}
+
 const { pageTitle, sourceFile } = Astro.props;
 const title = pageTitle
     ? `${pageTitle.trim()} | ${DEFAULT_TITLE}`
@@ -17,7 +22,7 @@ const title = pageTitle
     <div class="container">
         <Header />
         <slot />
-        <Footer sourceFile={sourceFile} />
+        <Footer {sourceFile} />
     </div>
 </Boilerplate>
 

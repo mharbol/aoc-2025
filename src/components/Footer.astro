@@ -1,6 +1,10 @@
 ---
 import { YEAR, AUTHOR, URL_BASE, PROJECT_URL } from "@scripts/constants";
 
+interface Props {
+    sourceFile?: string;
+}
+
 const { sourceFile } = Astro.props;
 ---
 
@@ -39,6 +43,7 @@ const { sourceFile } = Astro.props;
         text-align: center;
     }
     .footer {
+        margin-top: 10px;
         display: flex;
         align-items: center;
         justify-content: center;

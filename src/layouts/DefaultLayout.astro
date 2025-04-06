@@ -9,7 +9,7 @@ const allDays = Object.values(
 );
 ---
 
-<BaseLayout pageTitle={pageTitle} sourceFile={sourceFile}>
+<BaseLayout {pageTitle} {sourceFile}>
     <div class="container">
         <div class="left-menu">
             <LeftMenu allDays={allDays} selectedDay={selectedDay} />
