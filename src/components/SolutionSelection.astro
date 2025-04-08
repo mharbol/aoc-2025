@@ -1,0 +1,17 @@
+---
+interface Props {
+    dayUrl: string;
+    dayNumber: number;
+}
+
+const { dayUrl, dayNumber } = Astro.props;
+---
+
+<div class="container">
+    <a href={dayUrl}>Day {dayNumber}</a>
+</div>
+
+<style>
+    .container {
+    }
+</style>
