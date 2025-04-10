@@ -3,32 +3,39 @@ interface Props {
     dayNumber: number;
     url: string;
     isSelectedDay: boolean;
+    isReady: boolean;
 }
-const { dayNumber, url, isSelectedDay } = Astro.props;
+
+const { dayNumber, url, isSelectedDay, isReady } = Astro.props;
 ---
 
 <a
-    title=`Day ${dayNumber} solution`
-    href={url}
-    class:list={[{ selected: isSelectedDay }]}>Day {dayNumber}</a
+    title=`Day ${dayNumber} solution${isReady ? "" : " coming soon."}`
+    href={isReady ? url : null}
+    class:list={[{ selected: isSelectedDay, notReady: !isReady }]}
+>Day {dayNumber}{!isReady ? "*" : null}</a
 >
 
 <style>
     a {
         width: 140px;
         height: 35px;
-        border-radius: 15px;
+        border-radius: 9px;
         display: flex;
         justify-content: center;
         align-items: center;
         background-color: var(--sumiInk3);
         color: var(--springBlue);
     }
-    a.selected {
+    .selected {
         color: var(--surimiOrange);
         background-color: var(--sumiInk4);
     }
-    a:hover {
-        background-color: var(--sumiInk1);
+    .notReady {
+        background-color: var(--fujiGray);
+        color: var(--waveBlue1);
+    }
+    a:not(.notReady):hover {
+        background-color: var(--sumiInk0);
     }
 </style>

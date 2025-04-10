@@ -1,11 +1,9 @@
 ---
 import DefaultLayout from "./DefaultLayout.astro";
 import { githubUrl } from "@scripts/constants";
-const { file } = Astro.props;
 
-const dayNumber = parseInt(
-    file.substring(file.lastIndexOf("/") + 1).match(/[0-9]{2}/)![0],
-);
+const { frontmatter, fileName } = Astro.props;
+const dayNumber = frontmatter.dayNumber;
 
 const pageTitle = `Day ${dayNumber}`;
 
@@ -16,7 +14,7 @@ const loadExample: string = "Load Example Input";
 
 <DefaultLayout
     {pageTitle}
-    sourceFile={githubUrl(dayNumber)}
+    sourceFile={githubUrl(fileName)}
     selectedDay={dayNumber}
 >
     <slot />

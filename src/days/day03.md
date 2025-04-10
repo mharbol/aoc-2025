@@ -1,5 +1,7 @@
 ---
-layout: ../../layouts/MarkdownDayLayout.astro
+isReady: true
+dayNumber: 3
+# inputRegex:
 ---
 # Day 3
 Did it with `regex`.

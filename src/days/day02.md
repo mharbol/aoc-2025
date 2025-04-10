@@ -1,5 +1,7 @@
 ---
-layout: ../../layouts/MarkdownDayLayout.astro
+isReady: true
+dayNumber: 2
+# inputRegex:
 ---
 # Day 2
 More stuff about the problems.

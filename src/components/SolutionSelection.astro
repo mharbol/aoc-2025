@@ -2,16 +2,21 @@
 interface Props {
     dayUrl: string;
     dayNumber: number;
+    isReady: boolean;
 }
 
-const { dayUrl, dayNumber } = Astro.props;
+const { dayUrl, dayNumber, isReady } = Astro.props;
 ---
 
-<div class="container">
-    <a href={dayUrl}>Day {dayNumber}</a>
+<div class:list={["container", { notReady: !isReady }]}>
+    <a href={isReady ? dayUrl : null}>Day {dayNumber}{!isReady ? "*" : null}</a>
 </div>
 
 <style>
     .container {
+        /* border: 1px solid red !important; */
+    }
+    .notReady a {
+        color: var(--fujiGray);
     }
 </style>

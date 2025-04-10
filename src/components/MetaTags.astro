@@ -1,0 +1,11 @@
+---
+// More here to tinker with
+import { URL_BASE } from "@scripts/constants";
+
+import { getStaticPaths } from "@pages/[apple].png";
+const paths = getStaticPaths();
+---
+
+{paths.map((png: any) => 
+    <link rel="apple-touch-icon" href=`/${URL_BASE}/${png.params.apple}.png` />
+)}

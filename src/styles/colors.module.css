@@ -37,6 +37,7 @@
     --waveRed: #e46876;	/* Standout specials 1 (builtin variables) */
     --peachRed: #ff5d62;	/* Standout specials 2 (exception handling, return) */
     --surimiOrange: #ffa066;	/* Constants, imports, booleans */
+    --katanaGray:	#717c7c; /* Depricated */
 
     --button-color: #2e4057;
     --button-text: #ffbf00;
@@ -44,6 +45,7 @@
 
     --default-font: "JetBrains Mono", monospace;
     --default-font-weight: 400;
+    --default-font-size: 15px;
     --header-font: "Lato", sans-serif;
     --header-font-weight: 600;
 

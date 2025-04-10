@@ -1,0 +1,21 @@
+---
+import { getCollection, render } from "astro:content";
+import MarkdownDayLayout from "@layouts/MarkdownDayLayout.astro";
+
+export async function getStaticPaths() {
+    const days = await getCollection("solutions");
+    return days
+        .filter((day) => day.data.isReady)
+        .map((day) => ({
+            params: { day: day.id },
+            props: { day },
+        }));
+}
+
+const { day } = Astro.props;
+const { Content } = await render(day);
+---
+
+<MarkdownDayLayout frontmatter={day.data} fileName={day.id}>
+    <Content />
+</MarkdownDayLayout>

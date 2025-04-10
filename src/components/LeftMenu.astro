@@ -1,31 +1,29 @@
 ---
 import LeftMenuItem from "./LeftMenuItem.astro";
+import { URL_BASE } from "@scripts/constants";
 
 const { allDays, selectedDay } = Astro.props;
-
-function dayNumber(fileName: string): number {
-    return parseInt(
-        fileName.substring(fileName.lastIndexOf("/") + 1).match(/[0-9]{2}/)![0],
-    );
-}
 ---
 
 <div class="container">
     {
-        allDays.map((day: any) => (
-            <div class="inner-container">
-                <LeftMenuItem
-                    dayNumber={dayNumber(day.url)}
-                    url={day.url}
-                    isSelectedDay={selectedDay == dayNumber(day.url)}
-                />
-            </div>
-        ))
+        allDays
+            .sort((l: any, r: any) => l.data.dayNumber - r.data.dayNumber)
+            .map((day: any) => (
+                <div class="inner-container">
+                    <LeftMenuItem
+                        dayNumber={day.data.dayNumber}
+                        url={`/${URL_BASE}/solutions/${day.id}`}
+                        isSelectedDay={selectedDay == day.data.dayNumber}
+                        isReady={day.data.isReady}
+                    />
+                </div>
+            ))
     }
 </div>
 
 <style>
     .inner-container {
-        margin: 5px 25px 10px 10px;
+        margin: 0px 15px 2px 10px;
     }
 </style>

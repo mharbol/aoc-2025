@@ -28,3 +28,4 @@ pnpm-debug.log*
 
 # Rust ignores... this probably could be better
 aoc_2025/target/
+aoc_2025/pkg/

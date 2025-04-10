@@ -20,6 +20,7 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
     color: var(--fujiWhite);
+    font-size: var(--default-font-size);
 }
 
 img, picture, video, canvas, svg {
@@ -28,6 +29,7 @@ img, picture, video, canvas, svg {
 
 a {
     text-decoration: none;
+    font-size: var(--default-font-size);
     color: var(--surimiOrange);
 }
 

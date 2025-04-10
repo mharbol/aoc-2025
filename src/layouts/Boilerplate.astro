@@ -1,6 +1,6 @@
 ---
 import FontHeader from "@components/FontHeader.astro";
-import AppleIcons from "@components/AppleIcons.astro";
+import MetaTags from "@components/MetaTags.astro";
 const { pageTitle, favicon } = Astro.props;
 ---
 
@@ -11,7 +11,7 @@ const { pageTitle, favicon } = Astro.props;
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <FontHeader />
-        <AppleIcons />
+        <MetaTags />
         <title>{pageTitle}</title>
     </head>
     <body>
