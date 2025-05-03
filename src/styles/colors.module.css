@@ -39,10 +39,6 @@
     --surimiOrange: #ffa066;	/* Constants, imports, booleans */
     --katanaGray:	#717c7c; /* Depricated */
 
-    --button-color: #2e4057;
-    --button-text: #ffbf00;
-    --background-color: #2a2a37;
-
     --default-font: "JetBrains Mono", monospace;
     --default-font-weight: 400;
     --default-font-size: 15px;
@@ -51,39 +47,50 @@
 
 }
 
-@value fujiWhite: var(--fujiWhite);
-@value oldWhite: var(--oldWhite);
-@value sumiInk0: var(--sumiInk0);
-@value sumiInk1: var(--sumiInk1);
-@value sumiInk2: var(--sumiInk2);
-@value sumiInk3: var(--sumiInk3);
-@value sumiInk4: var(--sumiInk4);
-@value waveBlue1: var(--waveBlue1);
-@value waveBlue2: var(--waveBlue2);
-@value winterGreen: var(--winterGreen);
-@value winterYellow: var(--winterYellow);
-@value winterRed: var(--winterRed);
-@value winterBlue: var(--winterBlue);
-@value autumnGreen: var(--autumnGreen);
-@value autumnRed: var(--autumnRed);
-@value autumnYellow: var(--autumnYellow);
-@value samuraiRed: var(--samuraiRed);
-@value roninYellow: var(--roninYellow);
-@value waveAqua1: var(--waveAqua1);
-@value dragonBlue: var(--dragonBlue);
-@value fujiGray: var(--fujiGray);
-@value springViolet1: var(--springViolet1);
-@value oniViolet: var(--oniViolet);
-@value crystalBlue: var(--crystalBlue);
-@value springViolet2: var(--springViolet2);
-@value springBlue: var(--springBlue);
-@value lightBlue: var(--lightBlue);
-@value waveAqua2: var(--waveAqua2);
-@value springGreen: var(--springGreen);
-@value boatYellow1: var(--boatYellow1);
-@value boatYellow2: var(--boatYellow2);
-@value carpYellow: var(--carpYellow);
-@value sakuraPink: var(--sakuraPink);
-@value waveRed: var(--waveRed);
-@value peachRed: var(--peachRed);
-@value surimiOrange: var(--surimiOrange);
+.dark-mode {
+    --nav-button-color: #2e4057;
+    --nav-button-text: #ffbf00;
+    --background-color: #2a2a37;
+    --greyed-out: var(--fujiGray);
+    --greyed-out-text: var(--waveBlue1);
+    --hover-color: var(--sumiInk4);
+    --left-hover: var(--sumiInk0);
+    --left-nav-bg: var(--sumiInk3);
+    --left-nav-text: var(--springBlue);
+    --link-color: var(--surimiOrange);
+    --code-text: var(--springGreen);
+    --solution-text: var(--roninYellow);
+    --h-text: var(--waveAqua2);
+    --text-color: var(--fujiWhite);
+    --body-bg: var(--sumiInk2);
+    --button-bg: var(--waveBlue1);
+    --button-text: var(--carpYellow);
+    --toggle-bg: var(--fujiGray);
+    --toggle-slider-bg: var(--winterBlue);
+    --placeholder-color: var(--autumnGreen);
+    --left-nav-selected: var(--surimiOrange);
+}
+
+.light-mode {
+    --nav-button-color: var(--springViolet1);
+    --nav-button-text: black;
+    --background-color: var(--waveAqua2);
+    --greyed-out: var(--waveAqua2);
+    --greyed-out-text: var(--fujiWhite);
+    --hover-color: var(--springViolet2);
+    --left-hover: var(--fujiGray);
+    --left-nav-bg: var(--roninYellow);
+    --left-nav-text: var(--sumiInk2);
+    --link-color: var(--samuraiRed);
+    --code-text: var(--winterBlue);
+    --solution-text: var(--autumnRed);
+    --h-text: var(--sumiInk4);
+    --text-color: var(--sumiInk1);
+    --body-bg: var(--fujiWhite);
+    --button-bg: var(--autumnYellow);
+    --button-text: black;
+    --toggle-bg: var(--dragonBlue);
+    --toggle-slider-bg: var(--waveBlue2);
+    --placeholder-color: var(--winterGreen);
+    --left-nav-selected: var(--sumiInk0);
+}

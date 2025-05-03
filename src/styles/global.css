@@ -4,10 +4,12 @@
     /* Debug */
     /* border: 1px solid red !important; */
     margin: 0;
+    color: var(--text-color);
+    transition: 300ms;
 }
 
 body {
-    background-color: var(--sumiInk2);
+    background-color: var(--body-bg);
     font-family: var(--default-font);
     font-weight: var(--default-font-weight);
 }
@@ -15,11 +17,10 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--header-font);
     font-weight: var(--header-font-weight);
-    color: var(--waveAqua2);
+    color: var(--h-text);
 }
 
 p {
-    color: var(--fujiWhite);
     font-size: var(--default-font-size);
 }
 
@@ -30,14 +31,15 @@ img, picture, video, canvas, svg {
 a {
     text-decoration: none;
     font-size: var(--default-font-size);
-    color: var(--surimiOrange);
+    color: var(--link-color);
 }
 
 button {
-    background-color: var(--waveBlue1);
+    background-color: var(--button-bg);
     font-family: var(--default-font);
     font-size: 13px;
-    color: var(--carpYellow);
+    color: var(--button-text);
     border-radius: 12px;
+    border: none;
     padding: 1px 6px;
 }

@@ -6,6 +6,11 @@ const { pageTitle, favicon } = Astro.props;
 
 <html lang="en">
     <head>
+        <script is:inline>
+            const isDarkMode = localStorage.getItem("lightMode");
+            const theme = isDarkMode === "true" ? "light-mode" : "dark-mode";
+            document.querySelector("html").className = theme;
+        </script>
         <meta charset="utf-8" />
         <link rel="icon" type="image/svg+xml" href={favicon} />
         <meta name="viewport" content="width=device-width" />

@@ -24,18 +24,18 @@ const { dayNumber, url, isSelectedDay, isReady } = Astro.props;
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: var(--sumiInk3);
-        color: var(--springBlue);
+        background-color: var(--left-nav-bg);
+        color: var(--left-nav-text);
     }
     .selected {
-        color: var(--surimiOrange);
-        background-color: var(--sumiInk4);
+        color: var(--left-nav-selected);
+        background-color: var(--hover-color);
     }
     .notReady {
-        background-color: var(--fujiGray);
-        color: var(--waveBlue1);
+        background-color: var(--greyed-out);
+        color: var(--greyed-out-text);
     }
     a:not(.notReady):hover {
-        background-color: var(--sumiInk0);
+        background-color: var(--left-hover);
     }
 </style>

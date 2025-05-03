@@ -90,32 +90,31 @@ const loadExample: string = "Load Example Input";
             min-height: 75vh;
             scrollbar-width: thin;
             scroll-behavior: smooth;
-            scrollbar-color: var(--dragonBlue) var(--winterBlue);
-            color: var(--springGreen);
+            /* TODO HARBOL: figure out colors and styles*/
+            /* scrollbar-color: var(--dragonBlue) var(--winterBlue); */
+            color: var(--code-text);
             background-color: var(--background-color);
             font-family: var(--default-font);
         }
+        #puzzle-input::placeholder {
+            color: var(--placeholder-color);
+        }
 
         #solution-area {
-            /* border: 1px solid red !important; */
             display: inline-flex;
             .solution {
-                /* border: 1px solid red !important; */
                 display: flex;
             }
-
             p {
-                /* border: 1px solid red !important; */
                 padding: 0.1em;
             }
-
             justify-content: flex-start;
             align-items: center;
             margin: 0px;
         }
 
         .answer {
-            color: var(--roninYellow);
+            color: var(--solution-text);
         }
     </style>
 </DefaultLayout>

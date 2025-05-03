@@ -1,5 +1,6 @@
 ---
 import HeaderNavItem from "./HeaderNavItem.astro";
+import ThemeToggle from "./ThemeToggle.astro";
 ---
 
 <header>
@@ -7,6 +8,9 @@ import HeaderNavItem from "./HeaderNavItem.astro";
         <HeaderNavItem name="Home" path="/" />
         <HeaderNavItem name="Solutions" path="/solutions" />
         <HeaderNavItem name="About" path="/about" />
+        <div class="toggle">
+            <ThemeToggle />
+        </div>
     </nav>
 </header>
 
@@ -15,5 +19,10 @@ import HeaderNavItem from "./HeaderNavItem.astro";
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        align-items: center;
+    }
+    .toggle {
+        position: absolute;
+        right: 20px;
     }
 </style>
