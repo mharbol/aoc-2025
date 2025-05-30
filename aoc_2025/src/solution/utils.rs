@@ -2,8 +2,7 @@
 /// This _should_ save a lot of time in accessing coordinates that may or
 /// may not be in bounds.
 pub trait AocVecStringAccess {
-    /// Get the character at a `row` and `col` value.
-    /// This could probably be done better, but that will happen later...
+    /// Get the character at a `row` and `col` value which are signed.
     /// # Examples
     /// ```rust
     /// use aoc_2025::solution::utils::AocVecStringAccess;
