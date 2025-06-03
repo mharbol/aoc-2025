@@ -1,7 +1,7 @@
 use aoc_2025::cmd;
 
 fn main() {
-    match cmd::parse_args() {
+    match cmd::argparse::parse_args() {
         Ok((day, part, lines)) => println!("{}", run_problem(day, part, &lines)),
         Err(msg) => println!("{}", msg),
     };

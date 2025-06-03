@@ -1,9 +1,11 @@
-use std::{env, error::Error, fs};
+use std::{error::Error, fs};
 
 use crate::solution::{
     day01, day02, day03, day04, day05, day06, day07, day08, day09, day10, day11, day12, day13,
     day14, day15, day16, day17, day18, day19, day20, day21, day22, day23, day24, day25,
 };
+
+pub mod argparse;
 
 pub fn get_day(
     day: u32,
@@ -49,13 +51,3 @@ pub fn get_file_lines(file_path: &str) -> Result<Vec<String>, Box<dyn Error>> {
         .collect())
 }
 
-// TODO make this a better command line parser
-// Right now just accepts args as <day> <part> <file-path>
-pub fn parse_args() -> Result<(u32, u32, Vec<String>), String> {
-    let args: Vec<String> = env::args().collect();
-    Ok((
-        args[1].parse().map_err(|_| String::from("Bad day"))?,
-        args[2].parse().map_err(|_| String::from("Bad part"))?,
-        get_file_lines(args[3].as_str()).map_err(|_| String::from("Bad file"))?,
-    ))
-}
