@@ -18,24 +18,23 @@ pub fn part2(lines: &Vec<String>) -> String {
     cmd_pattern
         .find_iter(&lines.join(""))
         .map(|s| s.as_str())
-        .scan(true, |is_do, command| {
-            match command {
-                "do()" => {
-                    *is_do = true;
+        .scan(true, |is_do, command| match command {
+            "do()" => {
+                *is_do = true;
+                Some(0)
+            }
+            "don't()" => {
+                *is_do = false;
+                Some(0)
+            }
+            mul_cmd => {
+                if *is_do {
+                    let matches = mul_cmd[4..mul_cmd.len() - 1].split_once(",").unwrap();
+                    Some(matches.0.parse::<u32>().unwrap() * matches.1.parse::<u32>().unwrap())
+                } else {
+                    Some(0)
                 }
-                "don't()" => {
-                    *is_do = false;
-                }
-                mul_cmd => {
-                    if *is_do {
-                        let matches = mul_cmd[4..mul_cmd.len() - 1].split_once(",").unwrap();
-                        return Some(
-                            matches.0.parse::<u32>().unwrap() * matches.1.parse::<u32>().unwrap(),
-                        );
-                    }
-                }
-            };
-            Some(0)
+            }
         })
         .sum::<u32>()
         .to_string()

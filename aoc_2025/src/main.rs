@@ -1,10 +1,18 @@
+use std::process::ExitCode;
+
 use aoc_2025::cmd;
 
-fn main() {
+fn main() -> ExitCode {
     match cmd::argparse::parse_args() {
-        Ok((day, part, lines)) => println!("{}", run_problem(day, part, &lines)),
-        Err(msg) => println!("{}", msg),
-    };
+        Ok((day, part, lines)) => {
+            println!("{}", run_problem(day, part, &lines));
+            ExitCode::SUCCESS
+        }
+        Err(msg) => {
+            eprintln!("{}", msg);
+            ExitCode::FAILURE
+        }
+    }
 }
 
 fn run_problem(day: u32, part: u32, lines: &Vec<String>) -> String {

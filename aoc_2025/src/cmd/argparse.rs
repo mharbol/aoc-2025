@@ -11,3 +11,25 @@ pub fn parse_args() -> Result<(u32, u32, Vec<String>), String> {
         cmd::get_file_lines(args[3].as_str()).map_err(|_| String::from("Bad file"))?,
     ))
 }
+
+pub enum ArgParseStatus {
+    Ok(u32, u32, String),
+    Err(String),
+    Help,
+}
+
+pub struct ArgParse {
+    args: Vec<String>,
+}
+
+impl ArgParse {
+    pub fn new() -> ArgParse {
+        ArgParse {
+            args: env::args().collect(),
+        }
+    }
+    pub fn parse(self: &ArgParse) -> ArgParseStatus {
+        // TODO
+        ArgParseStatus::Help
+    }
+}
