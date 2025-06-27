@@ -13,7 +13,7 @@ pub trait AocVecStringAccess {
     /// assert_eq!(None, lines.get_signed(0, 10));
     /// assert_eq!(None, lines.get_signed(-1, 0));
     /// ```
-    fn get_signed(&self, row: i32, col: i32) -> Option<char>;
+    fn get_signed(&self, row: isize, col: isize) -> Option<char>;
 
     /// Iterate over the rows and columns getting each entry.
     /// # Examples
@@ -48,7 +48,7 @@ pub trait AocVecStringAccess {
 }
 
 impl AocVecStringAccess for Vec<String> {
-    fn get_signed(&self, row: i32, col: i32) -> Option<char> {
+    fn get_signed(&self, row: isize, col: isize) -> Option<char> {
         Some(
             *self
                 .as_slice()
@@ -83,11 +83,11 @@ pub fn gcd<T: std::ops::Rem<Output = T> + std::cmp::PartialEq<i32> + Copy>(a: T,
 }
 
 trait SignedAccess<T> {
-    fn get_signed(&self, idx: i32) -> Option<&T>;
+    fn get_signed(&self, idx: isize) -> Option<&T>;
 }
 
 impl<T> SignedAccess<T> for [T] {
-    fn get_signed(&self, idx: i32) -> Option<&T> {
+    fn get_signed(&self, idx: isize) -> Option<&T> {
         if idx < 0 {
             None
         } else {
