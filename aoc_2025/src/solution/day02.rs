@@ -1,19 +1,15 @@
-use itertools::Itertools;
-
 pub fn part1(lines: &Vec<String>) -> String {
-    lines
-        .iter()
-        .map(|line| {
-            line.split_whitespace()
-                .map(|num| num.parse::<i32>().unwrap())
-                .collect::<Vec<i32>>()
-        })
-        .filter(is_safe)
-        .count()
-        .to_string()
+    solve(lines, is_safe)
 }
 
 pub fn part2(lines: &Vec<String>) -> String {
+    solve(lines, is_drop_safe)
+}
+
+fn solve<T>(lines: &Vec<String>, func: T) -> String
+where
+    T: Fn(&Vec<i32>) -> bool,
+{
     lines
         .iter()
         .map(|line| {
@@ -21,15 +17,15 @@ pub fn part2(lines: &Vec<String>) -> String {
                 .map(|num| num.parse::<i32>().unwrap())
                 .collect::<Vec<i32>>()
         })
-        .filter(is_drop_safe)
+        .filter(func)
         .count()
         .to_string()
 }
 
 fn is_safe(nums: &Vec<i32>) -> bool {
-    nums.iter()
-        .tuple_windows()
-        .map(|(left, right)| left - right)
+    nums.as_slice()
+        .windows(2)
+        .map(|arr| (arr[0] - arr[1]))
         .scan(None, |state: &mut Option<bool>, diff| {
             Some(if *state.get_or_insert(diff > 0) {
                 diff > 0 && diff <= 3

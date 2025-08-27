@@ -9,7 +9,7 @@ fn main() {
 }
 
 fn add_wasm_targets() -> String {
-    let wasm_targets = fs::read_dir("./src/solution/")
+    fs::read_dir("./src/solution/")
         .unwrap()
         .into_iter()
         .map(|file| file.unwrap())
@@ -35,7 +35,5 @@ pub fn {}_part2(lines: Vec<String>) -> String {{
             )
         })
         .collect::<Vec<_>>()
-        .join("\n");
-
-    wasm_targets
+        .join("\n")
 }

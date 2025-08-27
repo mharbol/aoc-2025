@@ -30,7 +30,7 @@ pub fn get_day(
 }
 
 pub fn get_file_lines(file_path: &str) -> Result<Vec<String>, Box<dyn Error>> {
-    // TODO this could be done a little better...
+    // this could be done a little better...
     Ok(fs::read_to_string(file_path)?
         .lines()
         .map(String::from)

@@ -1,16 +1,20 @@
 use std::process::ExitCode;
 
-use aoc_2025::cmd;
+use aoc_2025::cmd::{self, argparse::ArgParse, argparse::ArgParseStatus};
 
 fn main() -> ExitCode {
-    match cmd::argparse::parse_args() {
-        Ok((day, part, lines)) => {
+    match ArgParse::new().parse() {
+        ArgParseStatus::Ok(day, part, lines) => {
             println!("{}", run_problem(day, part, &lines));
             ExitCode::SUCCESS
         }
-        Err(msg) => {
+        ArgParseStatus::Err(msg) => {
             eprintln!("{}", msg);
             ExitCode::FAILURE
+        }
+        ArgParseStatus::Help => {
+            ArgParse::show_help();
+            ExitCode::SUCCESS
         }
     }
 }
