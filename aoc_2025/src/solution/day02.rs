@@ -25,7 +25,7 @@ where
 fn is_safe(nums: &Vec<i32>) -> bool {
     nums.as_slice()
         .windows(2)
-        .map(|arr| (arr[0] - arr[1]))
+        .map(|arr| arr[0] - arr[1])
         .scan(None, |state: &mut Option<bool>, diff| {
             Some(if *state.get_or_insert(diff > 0) {
                 diff > 0 && diff <= 3
