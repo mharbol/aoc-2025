@@ -1,34 +1,40 @@
-use std::collections::HashMap;
-
 pub fn part1(lines: &Vec<String>) -> String {
-    let mut left: Vec<u32> = Vec::new();
-    let mut right: Vec<u32> = Vec::new();
-    for line in lines {
-        let mut nums = line.split_whitespace();
-        left.push(nums.next().unwrap().parse().unwrap());
-        right.push(nums.next().unwrap().parse().unwrap());
+    let mut state = 50;
+    let mut count = 0;
+
+    for add in lines.iter().map(|line| {
+        if 'L' == line.chars().nth(0).unwrap() {
+            -line[1..].parse::<i32>().unwrap()
+        } else {
+            line[1..].parse::<i32>().unwrap()
+        }
+    }) {
+        if 0 == state {
+            count += 1;
+        }
+        state = (state + add).rem_euclid(100);
     }
-    left.sort();
-    right.sort();
-    left.iter()
-        .zip(right)
-        .map(|(l, r)| l.abs_diff(r))
-        .sum::<u32>()
-        .to_string()
+    count.to_string()
 }
 
 pub fn part2(lines: &Vec<String>) -> String {
-    let mut right_count: HashMap<u32, u32> = HashMap::new();
-    let mut left_vec: Vec<u32> = Vec::new();
-    for line in lines {
-        let mut nums = line.split_whitespace();
-        left_vec.push(nums.next().unwrap().parse().unwrap());
-        *right_count
-            .entry(nums.next().unwrap().parse().unwrap())
-            .or_insert(0) += 1;
+    let mut state = 50;
+    let mut count = 0;
+
+    for add in lines.iter().map(|line| {
+        if 'L' == line.chars().nth(0).unwrap() {
+            -line[1..].parse::<i32>().unwrap()
+        } else {
+            line[1..].parse::<i32>().unwrap()
+        }
+    }) {
+        let old_state = state;
+        count += add.abs() / 100;
+        state += add % 100;
+        if 0 == state || 0 != old_state && (0 > state || 100 <= state) {
+            count += 1;
+        }
+        state = state.rem_euclid(100);
     }
-    left_vec.iter()
-        .filter_map(|left| Some(right_count.get(left)? * left))
-        .sum::<u32>()
-        .to_string()
+    count.to_string()
 }
