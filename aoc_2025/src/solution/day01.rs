@@ -9,10 +9,10 @@ pub fn part1(lines: &Vec<String>) -> String {
             line[1..].parse::<i32>().unwrap()
         }
     }) {
+        state = (state + add).rem_euclid(100);
         if 0 == state {
             count += 1;
         }
-        state = (state + add).rem_euclid(100);
     }
     count.to_string()
 }
