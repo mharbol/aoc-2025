@@ -20,6 +20,6 @@ fn test_day_3() {
 
 #[test]
 fn test_day_4() {
-    test_util::test_day_part(4, 1, "");
+    test_util::test_day_part(4, 1, "1370");
     test_util::test_day_part(4, 2, "");
 }
