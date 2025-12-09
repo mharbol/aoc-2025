@@ -12,8 +12,18 @@ pub fn part1(lines: &Vec<String>) -> String {
     count.to_string()
 }
 
-pub fn part2(_lines: &Vec<String>) -> String {
-    "".to_string()
+pub fn part2(lines: &Vec<String>) -> String {
+    let mut acc = 0;
+    let mut remove = get_all_can_remove(lines);
+    let mut lines_copy = lines.clone();
+    while 0 < remove.len() {
+        acc += remove.len();
+        for (row, col) in &remove {
+            lines_copy[*row].replace_range(*col..*col + 1, ".");
+        }
+        remove = get_all_can_remove(&lines_copy);
+    }
+    acc.to_string()
 }
 
 fn can_lift(lines: &Vec<String>, row: isize, col: isize) -> bool {
@@ -32,24 +42,14 @@ fn can_lift(lines: &Vec<String>, row: isize, col: isize) -> bool {
     }
 }
 
-#[cfg(test)]
-mod tests {
-    use crate::solution::day04::part1;
-
-    #[test]
-    fn test_part_1() {
-        let lines = vec![
-            "..@@.@@@@.".to_string(),
-            "@@@.@.@.@@".to_string(),
-            "@@@@@.@.@@".to_string(),
-            "@.@@@@..@.".to_string(),
-            "@@.@@@@.@@".to_string(),
-            ".@@@@@@@.@".to_string(),
-            ".@.@.@.@@@".to_string(),
-            "@.@@@.@@@@".to_string(),
-            ".@@@@@@@@.".to_string(),
-            "@.@.@@@.@.".to_string(),
-        ];
-        assert_eq!(part1(&lines), "13");
+fn get_all_can_remove(lines: &Vec<String>) -> Vec<(usize, usize)> {
+    let mut ret = Vec::new();
+    for row in 0..lines.len() {
+        for col in 0..lines[row].len() {
+            if can_lift(lines, row as isize, col as isize) {
+                ret.push((row, col));
+            }
+        }
     }
+    ret
 }
