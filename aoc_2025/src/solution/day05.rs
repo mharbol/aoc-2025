@@ -19,19 +19,33 @@ fn parse(lines: &Vec<String>) -> (Vec<(u64, u64)>, Vec<u64>) {
     let ranges = iter
         .by_ref()
         .take_while(|line| !line.is_empty())
-        .map(|line| line.split_once("-"))
-        .map(|pair| {
-            (
-                pair.unwrap().0.parse::<u64>().unwrap(),
-                pair.unwrap().1.parse::<u64>().unwrap(),
-            )
-        })
+        .map(|line| line.split_once("-").unwrap())
+        .map(|(left, right)| (left.parse().unwrap(), right.parse().unwrap()))
         .collect();
     let ids = iter.map(|line| line.parse().unwrap()).collect();
     (ranges, ids)
 }
 
-// struct RangeSet {}
+struct RangeSet {
+    ranges: Vec<(u64, u64)>,
+}
+
+impl RangeSet {
+    fn new() -> RangeSet {
+        RangeSet { ranges: Vec::new() }
+    }
+
+    fn size(self: &RangeSet) -> usize {
+        self.ranges
+            .iter()
+            .map(|&(left, right)| (right - left + 1) as usize)
+            .sum()
+    }
+
+    fn push(self: &mut RangeSet, range: (u64, u64)) {
+        debug_assert!(range.0 < range.1);
+    }
+}
 
 #[cfg(test)]
 mod tests {
