@@ -1,15 +1,12 @@
 use crate::solution::utils::AocVecStringAccess;
 
 pub fn part1(lines: &Vec<String>) -> String {
-    let mut count = 0;
-    for row in 0..lines.len() {
-        for col in 0..lines[row].len() {
-            if can_lift(lines, row as isize, col as isize) {
-                count += 1;
-            }
-        }
-    }
-    count.to_string()
+    lines
+        .row_col_iter()
+        .filter(|&(_, _, ch)| '@' == ch)
+        .filter(|&(row, col, _)| can_lift(lines, row as isize, col as isize))
+        .count()
+        .to_string()
 }
 
 pub fn part2(lines: &Vec<String>) -> String {
@@ -19,7 +16,7 @@ pub fn part2(lines: &Vec<String>) -> String {
     while 0 < remove.len() {
         acc += remove.len();
         for (row, col) in &remove {
-            lines_copy[*row].replace_range(*col..*col + 1, ".");
+            lines_copy[*row].replace_range(*col..=*col, ".");
         }
         remove = get_all_can_remove(&lines_copy);
     }
@@ -43,13 +40,10 @@ fn can_lift(lines: &Vec<String>, row: isize, col: isize) -> bool {
 }
 
 fn get_all_can_remove(lines: &Vec<String>) -> Vec<(usize, usize)> {
-    let mut ret = Vec::new();
-    for row in 0..lines.len() {
-        for col in 0..lines[row].len() {
-            if can_lift(lines, row as isize, col as isize) {
-                ret.push((row, col));
-            }
-        }
-    }
-    ret
+    lines
+        .row_col_iter()
+        .filter(|&(_, _, ch)| '@' == ch)
+        .filter(|&(row, col, _)| can_lift(lines, row as isize, col as isize))
+        .map(|(row, col, _)| (row, col))
+        .collect()
 }
