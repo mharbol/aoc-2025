@@ -11,7 +11,7 @@ fn solve(lines: &Vec<String>, is_invalid: fn(u64) -> bool) -> String {
         .split(",")
         .map(|range| range.split_once('-').unwrap())
         .map(|(lhs, rhs)| (lhs.parse::<u64>().unwrap(), rhs.parse::<u64>().unwrap()))
-        .map(|(lhs, rhs)| lhs..(rhs + 1))
+        .map(|(lhs, rhs)| lhs..=rhs)
         .flatten()
         .filter(|&n| is_invalid(n))
         .sum::<u64>()
