@@ -27,5 +27,11 @@ fn test_day_4() {
 #[test]
 fn test_day_5() {
     test_util::test_day_part(5, 1, "517");
-    test_util::test_day_part(5, 2, "");
+    test_util::test_day_part(5, 2, "336173027056994");
+}
+
+#[test]
+fn test_day_6() {
+    test_util::test_day_part(6, 1, "");
+    test_util::test_day_part(6, 2, "");
 }

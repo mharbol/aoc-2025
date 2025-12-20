@@ -10,5 +10,6 @@ crate-type = ["cdylib", "rlib"]
 lto = true
 
 [dependencies]
+range-set-blaze = "0.4.1" # TODO - remove this
 regex = "1.11.1"
 wasm-bindgen = "0.2.100"
