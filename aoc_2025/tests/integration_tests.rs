@@ -32,6 +32,12 @@ fn test_day_5() {
 
 #[test]
 fn test_day_6() {
-    test_util::test_day_part(6, 1, "");
-    test_util::test_day_part(6, 2, "");
+    test_util::test_day_part(6, 1, "5784380717354");
+    test_util::test_day_part(6, 2, "7996218225744");
+}
+
+#[test]
+fn test_day_7() {
+    test_util::test_day_part(7, 1, "");
+    test_util::test_day_part(7, 2, "");
 }
