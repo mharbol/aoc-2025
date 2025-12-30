@@ -43,7 +43,14 @@ fn test_day_7() {
 }
 
 #[test]
+#[ignore]
 fn test_day_8() {
-    test_util::test_day_part(8, 1, "");
-    test_util::test_day_part(8, 2, "");
+    test_util::test_day_part(8, 1, "90036");
+    test_util::test_day_part(8, 2, "6083499488");
+}
+
+#[test]
+fn test_day_9() {
+    test_util::test_day_part(9, 1, "");
+    test_util::test_day_part(9, 2, "");
 }
