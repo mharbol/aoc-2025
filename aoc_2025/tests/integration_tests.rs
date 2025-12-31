@@ -51,6 +51,6 @@ fn test_day_8() {
 
 #[test]
 fn test_day_9() {
-    test_util::test_day_part(9, 1, "");
+    test_util::test_day_part(9, 1, "4741848414");
     test_util::test_day_part(9, 2, "");
 }
