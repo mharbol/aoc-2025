@@ -20,7 +20,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: cargo test on ${{ matrix.os }}
         working-directory: ./aoc_2025
-        run:  cargo test --release
+        run:  cargo test --release -- --include-ignored
   build-wasm:
     needs: test-rust
     runs-on: ubuntu-latest
