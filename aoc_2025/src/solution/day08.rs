@@ -15,7 +15,7 @@ pub fn part1(lines: &Vec<String>) -> String {
         .to_string()
 }
 
-// TODO - make this faster
+// TODO - make this not slow
 pub fn part2(lines: &Vec<String>) -> String {
     let coords = parse_coordinates(lines);
     let (n0, n1) = build_connected_graph(&coords);
