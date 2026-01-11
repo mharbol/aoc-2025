@@ -10,7 +10,7 @@ fn solve(lines: &Vec<String>, is_invalid: fn(u64) -> bool) -> String {
     lines[0]
         .split(",")
         .map(|range| range.split_once('-').unwrap())
-        .map(|(lhs, rhs)| (lhs.parse::<u64>().unwrap(), rhs.parse::<u64>().unwrap()))
+        .map(|(lhs, rhs)| (lhs.parse().unwrap(), rhs.parse().unwrap()))
         .flat_map(|(lhs, rhs)| lhs..=rhs)
         .filter(|&n| is_invalid(n))
         .sum::<u64>()
