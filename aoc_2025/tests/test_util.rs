@@ -17,7 +17,7 @@ pub fn test_day_part(day: u32, part: u32, expected: &str) {
     );
 }
 
-pub fn get_day(
+fn get_day(
     day: u32,
 ) -> Option<(
     Box<fn(&Vec<String>) -> String>,
@@ -40,7 +40,7 @@ pub fn get_day(
     }
 }
 
-pub fn get_file_lines(file_path: &str) -> Result<Vec<String>, Box<dyn Error>> {
+fn get_file_lines(file_path: &str) -> Result<Vec<String>, Box<dyn Error>> {
     // this could be done a little better...
     Ok(fs::read_to_string(file_path)?
         .lines()
