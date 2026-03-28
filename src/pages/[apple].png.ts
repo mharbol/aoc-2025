@@ -15,6 +15,6 @@ export async function GET({ params, request }) {
 
 export function getStaticPaths() {
     return [
-        { params: { apple: "apple-icon", width: 180 } },
+        { params: { apple: "apple-icon", width: "180" } },
     ];
 }
