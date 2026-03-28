@@ -17,7 +17,7 @@ jobs:
       matrix:
         os: [ ubuntu-latest, macos-latest ]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: cargo test on ${{ matrix.os }}
         working-directory: ./aoc_2025
         run:  cargo test --release -- --include-ignored
@@ -41,7 +41,7 @@ jobs:
     needs: build-wasm
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: actions/download-artifact@v4
         with:
           name: wasm-pkg
