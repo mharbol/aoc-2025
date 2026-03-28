@@ -28,7 +28,7 @@ jobs:
       run:
         working-directory: ./aoc_2025
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Install wasm-pack
         run: cargo install wasm-pack
       - name: Compile WASM
@@ -47,7 +47,7 @@ jobs:
           name: wasm-pkg
           path: aoc_2025/pkg
       - name: Build Astro
-        uses: withastro/action@v3
+        uses: withastro/action@v5
   deploy:
     needs: build-astro
     runs-on: ubuntu-latest
