@@ -27,5 +27,5 @@ pnpm-debug.log*
 .idea/
 
 # Rust ignores... this probably could be better
-aoc_2025/target/
-aoc_2025/pkg/
+target/
+pkg/

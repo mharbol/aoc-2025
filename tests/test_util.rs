@@ -5,7 +5,7 @@ use std::{error::Error, fs};
 
 pub fn test_day_part(day: u32, part: u32, expected: &str) {
     let lines =
-        get_file_lines(format!("../public/resources/{}", format!("day{:0>2}.txt", day)).as_str())
+        get_file_lines(format!("public/resources/{}", format!("day{:0>2}.txt", day)).as_str())
             .unwrap();
     assert_eq!(
         String::from(expected),

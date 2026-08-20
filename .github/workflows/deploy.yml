@@ -19,14 +19,11 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - name: cargo test on ${{ matrix.os }}
-        working-directory: ./aoc_2025
         run:  cargo test --release -- --include-ignored
   build-wasm:
     needs: test-rust
     runs-on: ubuntu-latest
     defaults:
-      run:
-        working-directory: ./aoc_2025
     steps:
       - uses: actions/checkout@v5
       - name: Install wasm-pack
@@ -36,7 +33,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: wasm-pkg
-          path: aoc_2025/pkg
+          path: pkg
   build-astro:
     needs: build-wasm
     runs-on: ubuntu-latest
@@ -45,7 +42,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: wasm-pkg
-          path: aoc_2025/pkg
+          path: pkg
       - name: Build Astro
         uses: withastro/action@v5
   deploy:
