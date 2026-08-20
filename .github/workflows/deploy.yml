@@ -23,7 +23,6 @@ jobs:
   build-wasm:
     needs: test-rust
     runs-on: ubuntu-latest
-    defaults:
     steps:
       - uses: actions/checkout@v5
       - name: Install wasm-pack
