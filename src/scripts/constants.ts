@@ -9,5 +9,5 @@ export const PROJECT_URL: string = `https://github.com/mharbol/${URL_BASE}`;
 export const UPDATE_12_DAYS_URL: string = "https://adventofcode.com/2025/about#faq_num_days";
 
 export function githubUrl(dayId: string): string {
-    return `${PROJECT_URL}/blob/master/aoc_2025/src/solution/${dayId}.rs`
+    return `${PROJECT_URL}/blob/master/src/solution/${dayId}.rs`
 }
